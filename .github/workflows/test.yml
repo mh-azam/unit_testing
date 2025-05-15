@@ -20,10 +20,17 @@ jobs:
         run: npm install
 
       - name: Run unit tests
-        run: npx test
+        run: npx jest --coverage
 
       - name: Debug - List generated files
         run: ls -R
+
+      - name: Ensure Coverage Directory Exists
+        run: |
+          if [ ! -d "coverage" ]; then
+            echo "Coverage directory not found!";
+            exit 1;
+          fi
 
       - name: Upload test report (optional)
         uses: actions/upload-artifact@v3

@@ -1,5 +1,8 @@
 /** @type {Detox.DetoxConfig} */
+
 module.exports = {
+  collectCoverage: true,
+  coverageDirectory: "coverage",
   testRunner: {
     args: {
       $0: "jest",
